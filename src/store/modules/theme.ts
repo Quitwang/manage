@@ -54,9 +54,7 @@ export const useThemeStore = defineStore({
           [`--el-color-primary-light-${i + 1}`]: getThemeColor(this.isDark, color, (i + 1) / 10)
         })).reduce((acc, curr) => ({ ...acc, ...curr }), {})
       };
-      const theme =
-        (this.isDark ? 'html.dark' : ':root') +
-        JSON.stringify(colors).replace(/,/g, ';').replace(/"/g, '');
+      const theme = (this.isDark ? 'html.dark' : ':root') + JSON.stringify(colors).replace(/,/g, ';').replace(/"/g, '');
       let style = document.getElementById('theme-var');
       if (style) {
         style.innerHTML = theme;
